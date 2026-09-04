@@ -1,0 +1,21 @@
+[build]
+  command = "# no build command needed"
+  publish = "."
+
+# Redirect index.html to root
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+
+# Single Page App redirects
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Clean URLs - remove .html extension
+[[redirects]]
+  from = "/*.html"
+  to = "/:splat"
+  status = 301
