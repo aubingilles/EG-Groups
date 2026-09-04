@@ -2,20 +2,90 @@
   command = "# no build command needed"
   publish = "."
 
-# Redirect index.html to root
+# Redirect /index.html to root
 [[redirects]]
   from = "/index.html"
   to = "/"
   status = 301
 
-# Single Page App redirects
+# Clean URLs - redirect .html files to extensionless versions
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
+  from = "/products.html"
+  to = "/products"
+  status = 301
+
+[[redirects]]
+  from = "/about.html"
+  to = "/about"
+  status = 301
+
+[[redirects]]
+  from = "/services.html"
+  to = "/services"
+  status = 301
+
+[[redirects]]
+  from = "/contact.html"
+  to = "/contact"
+  status = 301
+
+[[redirects]]
+  from = "/category.html"
+  to = "/category"
+  status = 301
+
+[[redirects]]
+  from = "/product.html"
+  to = "/product"
+  status = 301
+
+[[redirects]]
+  from = "/certificates.html"
+  to = "/certificates"
+  status = 301
+
+[[redirects]]
+  from = "/refund-policy.html"
+  to = "/refund-policy"
+  status = 301
+
+# Serve HTML files for extensionless URLs
+[[redirects]]
+  from = "/products"
+  to = "/products.html"
   status = 200
 
-# Clean URLs - remove .html extension
 [[redirects]]
-  from = "/*.html"
-  to = "/:splat"
-  status = 301
+  from = "/about"
+  to = "/about.html"
+  status = 200
+
+[[redirects]]
+  from = "/services"
+  to = "/services.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 200
+
+[[redirects]]
+  from = "/category"
+  to = "/category.html"
+  status = 200
+
+[[redirects]]
+  from = "/product"
+  to = "/product.html"
+  status = 200
+
+[[redirects]]
+  from = "/certificates"
+  to = "/certificates.html"
+  status = 200
+
+[[redirects]]
+  from = "/refund-policy"
+  to = "/refund-policy.html"
+  status = 200
