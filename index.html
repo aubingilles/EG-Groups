@@ -7,6 +7,26 @@
 <meta name="description" content="EG Groups — wholesale trading, agricultural machinery, food & beverage export, consulting services. Istanbul-based, global reach.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚜</text></svg>">
 <link rel="stylesheet" href="css/style.css">
+<style>
+  #featuredProducts {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+  @media (max-width: 1024px) {
+    #featuredProducts {
+      grid-template-columns: repeat(3, 1fr) !important;
+    }
+  }
+  @media (max-width: 768px) {
+    #featuredProducts {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+  }
+  @media (max-width: 480px) {
+    #featuredProducts {
+      grid-template-columns: repeat(1, 1fr) !important;
+    }
+  }
+</style>
 </head>
 <body>
 
@@ -293,18 +313,18 @@
     else startAutoplay();
   });
 
-  // Featured Products - 6 products from different categories (3 per row)
+  // Featured Products - 8 products from different categories (4 per row)
   document.addEventListener("DOMContentLoaded", () => {
     const categories = ["tractors", "combine-harvesters", "balers", "mowers", "ploughs", "telehandlers"];
     const featured = [];
 
-    // Get one product from each category
+    // Get 2 products from each category to have 8 total
     categories.forEach(cat => {
-      const product = PRODUCTS.find(p => p.category === cat);
-      if (product) featured.push(product);
+      const products = PRODUCTS.filter(p => p.category === cat).slice(0, 2);
+      featured.push(...products);
     });
 
-    renderGrid("featuredProducts", featured.slice(0, 6));
+    renderGrid("featuredProducts", featured.slice(0, 8));
   });
 </script>
 </body>
