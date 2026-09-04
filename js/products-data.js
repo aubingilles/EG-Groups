@@ -2713,7 +2713,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 2400,
     "country": "Turkey",
-    "image": "https://images.unsplash.com/photo-1474836762456-cbb2d3a9a5b5?w=500&h=400&fit=crop",
+    "image": "https://ik.imagekit.io/efarm/website/olive_oil_bottle_premium.jpg",
     "badge": "Fresh"
   },
   {
@@ -2728,7 +2728,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 450,
     "country": "Ukraine",
-    "image": "https://images.unsplash.com/photo-1585705481951-d0fdf677d86d?w=500&h=400&fit=crop",
+    "image": "https://ik.imagekit.io/efarm/website/wheat_grains_bulk.jpg",
     "badge": "Bulk"
   },
   {
@@ -2743,7 +2743,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 1800,
     "country": "Ukraine",
-    "image": "https://images.unsplash.com/photo-1599599810694-b5ac4dd93e12?w=500&h=400&fit=crop",
+    "image": "https://ik.imagekit.io/efarm/website/product_default.jpg",
     "badge": null
   },
   {
@@ -2758,7 +2758,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 3200,
     "country": "India",
-    "image": "https://images.unsplash.com/photo-1599599810611-b6efb6810599?w=500&h=400&fit=crop",
+    "image": "https://ik.imagekit.io/efarm/website/product_default.jpg",
     "badge": "Premium"
   },
 
@@ -2775,7 +2775,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 2800,
     "country": "Poland",
-    "image": "https://images.unsplash.com/photo-1599599810739-52a73cf8b0e6?w=500&h=400&fit=crop",
+    "image": "https://ik.imagekit.io/efarm/website/product_default.jpg",
     "badge": "Hot Deal"
   },
   {
@@ -2790,7 +2790,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 15000,
     "country": "Brazil",
-    "image": "https://images.unsplash.com/photo-1599599810368-2c4be67b2407?w=500&h=400&fit=crop",
+    "image": "https://ik.imagekit.io/efarm/website/product_default.jpg",
     "badge": null
   },
   {
@@ -2805,7 +2805,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 8500,
     "country": "India",
-    "image": "https://images.unsplash.com/photo-1599599810920-5adc6ce3dd6a?w=500&h=400&fit=crop",
+    "image": "https://ik.imagekit.io/efarm/website/product_default.jpg",
     "badge": null
   },
   {
@@ -2820,7 +2820,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 5200,
     "country": "Germany",
-    "image": "https://images.unsplash.com/photo-1599599810950-f8f7e9c3c0b0?w=500&h=400&fit=crop",
+    "image": "https://ik.imagekit.io/efarm/website/product_default.jpg",
     "badge": "Exclusive"
   },
 
@@ -2837,7 +2837,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 12000,
     "country": "Germany",
-    "image": "https://images.unsplash.com/photo-1599599810825-e8c11e1c4b6f?w=500&h=400&fit=crop",
+    "image": "https://ik.imagekit.io/efarm/website/product_default.jpg",
     "badge": null
   },
   {
@@ -2852,7 +2852,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 3500,
     "country": "Saudi Arabia",
-    "image": "https://images.unsplash.com/photo-1599599810658-e8f51cf83d7e?w=500&h=400&fit=crop",
+    "image": "https://ik.imagekit.io/efarm/website/product_default.jpg",
     "badge": "Hot Deal"
   },
   {
@@ -2867,7 +2867,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 4800,
     "country": "Netherlands",
-    "image": "https://images.unsplash.com/photo-1599599810490-4cfccd0e0d45?w=500&h=400&fit=crop",
+    "image": "https://ik.imagekit.io/efarm/website/product_default.jpg",
     "badge": null
   },
   {
@@ -2882,7 +2882,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 2200,
     "country": "China",
-    "image": "https://images.unsplash.com/photo-1599599810521-5b6f8b5b6c9d?w=500&h=400&fit=crop",
+    "image": "https://ik.imagekit.io/efarm/website/product_default.jpg",
     "badge": null
   },
 
@@ -2899,7 +2899,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 1200,
     "country": "Spain",
-    "image": "https://images.unsplash.com/photo-1599599810152-7a8e3c8b3b3d?w=500&h=400&fit=crop",
+    "image": "https://ik.imagekit.io/efarm/website/product_default.jpg",
     "badge": "Fresh"
   },
   {
@@ -2914,7 +2914,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 6800,
     "country": "Norway",
-    "image": "https://images.unsplash.com/photo-1599599810369-2c5b5f9b5b5b?w=500&h=400&fit=crop",
+    "image": "https://ik.imagekit.io/efarm/website/product_default.jpg",
     "badge": "Premium"
   },
   {
@@ -2929,7 +2929,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 3600,
     "country": "Vietnam",
-    "image": "https://images.unsplash.com/photo-1599599810180-2c5e5e5b5b5b?w=500&h=400&fit=crop",
+    "image": "https://ik.imagekit.io/efarm/website/product_default.jpg",
     "badge": null
   },
   {
@@ -2944,7 +2944,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 8200,
     "country": "Iran",
-    "image": "https://images.unsplash.com/photo-1599599810090-2c5e5e5b5b5b?w=500&h=400&fit=crop",
+    "image": "https://ik.imagekit.io/efarm/website/product_default.jpg",
     "badge": "Bulk"
   }
 ];
