@@ -313,15 +313,24 @@
     else startAutoplay();
   });
 
-  // Featured Products - 8 products from different categories (4 per row)
+  // Featured Products - 8 products from mixed categories (4 per row)
   document.addEventListener("DOMContentLoaded", () => {
-    const categories = ["tractors", "combine-harvesters", "balers", "mowers", "ploughs", "telehandlers"];
+    const categories = [
+      "food-beverages",
+      "raw-materials",
+      "industrial-supplies",
+      "global-network",
+      "tractors",
+      "combine-harvesters",
+      "balers",
+      "mowers"
+    ];
     const featured = [];
 
-    // Get 2 products from each category to have 8 total
+    // Get 1 product from each category to have 8 total with maximum variety
     categories.forEach(cat => {
-      const products = PRODUCTS.filter(p => p.category === cat).slice(0, 2);
-      featured.push(...products);
+      const product = PRODUCTS.find(p => p.category === cat);
+      if (product) featured.push(product);
     });
 
     renderGrid("featuredProducts", featured.slice(0, 8));
