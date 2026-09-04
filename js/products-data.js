@@ -2743,7 +2743,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 1800,
     "country": "Ukraine",
-    "image": "https://ik.imagekit.io/efarm/website/product_default.jpg",
+    "image": "https://ik.imagekit.io/efarm/images/77725b08-0d4b-43fc-95d0-2a720b39fb82.jpg",
     "badge": null
   },
   {
@@ -2758,7 +2758,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 3200,
     "country": "India",
-    "image": "https://ik.imagekit.io/efarm/website/product_default.jpg",
+    "image": "https://ik.imagekit.io/efarm/images/604b35ba-24bd-44ec-a6f5-9403b5ad7032.jpg",
     "badge": "Premium"
   },
 
@@ -2775,7 +2775,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 2800,
     "country": "Poland",
-    "image": "https://ik.imagekit.io/efarm/website/product_default.jpg",
+    "image": "https://ik.imagekit.io/efarm/website/plough_with_tractor_73477f794e.jpg",
     "badge": "Hot Deal"
   },
   {
@@ -2790,7 +2790,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 15000,
     "country": "Brazil",
-    "image": "https://ik.imagekit.io/efarm/website/product_default.jpg",
+    "image": "https://ik.imagekit.io/efarm/website/plough_with_tractor_73477f794e.jpg",
     "badge": null
   },
   {
@@ -2805,7 +2805,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 8500,
     "country": "India",
-    "image": "https://ik.imagekit.io/efarm/website/product_default.jpg",
+    "image": "https://ik.imagekit.io/efarm/website/startpage_mower_7ca37102cf.jpg",
     "badge": null
   },
   {
@@ -2820,7 +2820,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 5200,
     "country": "Germany",
-    "image": "https://ik.imagekit.io/efarm/website/product_default.jpg",
+    "image": "https://ik.imagekit.io/efarm/website/startpage_mower_7ca37102cf.jpg",
     "badge": "Exclusive"
   },
 
@@ -2837,7 +2837,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 12000,
     "country": "Germany",
-    "image": "https://ik.imagekit.io/efarm/website/product_default.jpg",
+    "image": "https://ik.imagekit.io/efarm/website/blue_tractor_in_field_with_grubber_003dc4c4ce.jpg",
     "badge": null
   },
   {
@@ -2852,7 +2852,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 3500,
     "country": "Saudi Arabia",
-    "image": "https://ik.imagekit.io/efarm/website/product_default.jpg",
+    "image": "https://ik.imagekit.io/efarm/website/blue_tractor_in_field_with_grubber_003dc4c4ce.jpg",
     "badge": "Hot Deal"
   },
   {
@@ -2867,7 +2867,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 4800,
     "country": "Netherlands",
-    "image": "https://ik.imagekit.io/efarm/website/product_default.jpg",
+    "image": "https://ik.imagekit.io/efarm/website/blue_tractor_in_field_with_grubber_003dc4c4ce.jpg",
     "badge": null
   },
   {
@@ -2882,7 +2882,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 2200,
     "country": "China",
-    "image": "https://ik.imagekit.io/efarm/website/product_default.jpg",
+    "image": "https://ik.imagekit.io/efarm/website/blue_tractor_in_field_with_grubber_003dc4c4ce.jpg",
     "badge": null
   },
 
@@ -2899,7 +2899,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 1200,
     "country": "Spain",
-    "image": "https://ik.imagekit.io/efarm/website/product_default.jpg",
+    "image": "https://ik.imagekit.io/efarm/website/blue_tractor_in_field_with_grubber_003dc4c4ce.jpg",
     "badge": "Fresh"
   },
   {
@@ -2914,7 +2914,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 6800,
     "country": "Norway",
-    "image": "https://ik.imagekit.io/efarm/website/product_default.jpg",
+    "image": "https://ik.imagekit.io/efarm/website/blue_tractor_in_field_with_grubber_003dc4c4ce.jpg",
     "badge": "Premium"
   },
   {
@@ -2929,7 +2929,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 3600,
     "country": "Vietnam",
-    "image": "https://ik.imagekit.io/efarm/website/product_default.jpg",
+    "image": "https://ik.imagekit.io/efarm/website/blue_tractor_in_field_with_grubber_003dc4c4ce.jpg",
     "badge": null
   },
   {
@@ -2944,7 +2944,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 8200,
     "country": "Iran",
-    "image": "https://ik.imagekit.io/efarm/website/product_default.jpg",
+    "image": "https://ik.imagekit.io/efarm/website/blue_tractor_in_field_with_grubber_003dc4c4ce.jpg",
     "badge": "Bulk"
   }
 ];

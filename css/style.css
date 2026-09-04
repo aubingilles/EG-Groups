@@ -57,6 +57,9 @@ section{padding:64px 0}
 .btn-block{width:100%}
 .btn-sm{padding:9px 18px;font-size:13px}
 
+/* ---------- Site Header Container ---------- */
+#site-header{position:sticky;top:0;z-index:100;}
+
 /* ---------- Top utility bar ---------- */
 .topbar{background:var(--green-dark);color:#e8d9b8;font-size:13px}
 .topbar .container{display:flex;justify-content:space-between;align-items:center;height:38px}
