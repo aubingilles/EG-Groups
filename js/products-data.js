@@ -2713,7 +2713,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 2400,
     "country": "Turkey",
-    "image": "https://ik.imagekit.io/efarm/website/olive_oil_bottle_premium.jpg",
+    "image": "https://ik.imagekit.io/efarm/images/77725b08-0d4b-43fc-95d0-2a720b39fb82.jpg",
     "badge": "Fresh"
   },
   {
@@ -2728,7 +2728,7 @@ const PRODUCTS = [
     "hp": 0,
     "price": 450,
     "country": "Ukraine",
-    "image": "https://ik.imagekit.io/efarm/website/wheat_grains_bulk.jpg",
+    "image": "https://ik.imagekit.io/efarm/images/604b35ba-24bd-44ec-a6f5-9403b5ad7032.jpg",
     "badge": "Bulk"
   },
   {

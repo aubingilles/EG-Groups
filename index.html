@@ -234,6 +234,7 @@
 <div id="site-footer"></div>
 
 <script src="js/products-data.js"></script>
+<script src="js/wholesale-data.js"></script>
 <script src="js/main.js"></script>
 <script>
   // Hero slider
@@ -286,22 +287,20 @@
     else startAutoplay();
   });
 
-  // Featured Products - 8 products from mixed categories (4 per row)
+  // Featured Products - mix of wholesale and machinery products (4 per row)
   document.addEventListener("DOMContentLoaded", () => {
-    const categories = [
-      "food-beverages",
-      "raw-materials",
-      "industrial-supplies",
-      "global-network",
-      "tractors",
-      "combine-harvesters",
-      "balers",
-      "mowers"
-    ];
     const featured = [];
 
-    // Get 1 product from each category to have 8 total with maximum variety
-    categories.forEach(cat => {
+    // Get 4 wholesale products from different groups
+    const groups = ["Food & Beverages", "Agricultural Products & Raw Materials", "Industrial & Medical Supplies", "Specialty & Other"];
+    groups.forEach(group => {
+      const product = WHOLESALE.find(p => p.group === group);
+      if (product) featured.push(product);
+    });
+
+    // Get 4 machinery products from different categories
+    const machCategories = ["tractors", "combine-harvesters", "balers", "mowers"];
+    machCategories.forEach(cat => {
       const product = PRODUCTS.find(p => p.category === cat);
       if (product) featured.push(product);
     });

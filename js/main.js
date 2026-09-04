@@ -121,22 +121,32 @@ function mountLayout() {
 
 /* ---------- Product card ---------- */
 function productCardHTML(p) {
+  // Check if it's a wholesale product or machinery product
+  const isWholesale = p.group !== undefined;
+
   return `
   <div class="product-card">
-    <a href="product.html?id=${p.id}" class="img-wrap">
+    <a href="${isWholesale ? 'products.html' : 'product.html?id=' + p.id}" class="img-wrap">
       ${p.badge ? `<span class="badge">${p.badge}</span>` : ""}
       <img src="${p.image}" alt="${p.name}" loading="lazy">
     </a>
     <div class="body">
-      <a href="product.html?id=${p.id}"><h3>${p.name}</h3></a>
-      <div class="specs">
-        <span><b>${p.year}</b> Year</span>
-        <span><b>${p.hp} HP</b> Engine</span>
-        <span><b>${p.hours.toLocaleString()} h</b> Hours</span>
-      </div>
-      <div class="country">📍 ${p.country}</div>
+      <a href="${isWholesale ? 'products.html' : 'product.html?id=' + p.id}"><h3>${p.name}</h3></a>
+      ${isWholesale ? `
+        <div class="specs">
+          <span><b>${p.category}</b></span>
+          <span><b>${p.group}</b></span>
+        </div>
+      ` : `
+        <div class="specs">
+          <span><b>${p.year}</b> Year</span>
+          <span><b>${p.hp} HP</b> Engine</span>
+          <span><b>${p.hours.toLocaleString()} h</b> Hours</span>
+        </div>
+        <div class="country">📍 ${p.country}</div>
+      `}
       <div class="actions">
-        <a class="btn btn-primary" href="product.html?id=${p.id}&intent=purchase">Purchase</a>
+        <a class="btn btn-primary" href="${isWholesale ? 'products.html' : 'product.html?id=' + p.id + '&intent=purchase'}">View</a>
         <a class="btn btn-outline" href="contact.html?intent=message&product=${encodeURIComponent(p.name)}">Message</a>
       </div>
     </div>
