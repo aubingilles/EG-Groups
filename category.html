@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">Agricultural Equipment | EG Groups</title>
+<meta name="description" content="Browse agricultural machinery for sale from EG Groups ✓ Fully inspected ✓ Certified equipment ✓ Worldwide delivery.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚜</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / <span id="crumbLabel">All Categories</span></div>
+    <h1 id="heroTitle">All used farm machinery categories</h1>
+  </div>
+</div>
+
+<section class="section-light" style="padding-top:36px">
+  <div class="container">
+    <div class="listing-layout">
+
+      <aside class="filters">
+        <h4>Filters</h4>
+        <div class="filter-group">
+          <h5>Category</h5>
+          <div id="catFilterList"></div>
+        </div>
+        <div class="filter-group">
+          <h5>Brand</h5>
+          <div id="brandFilterList"></div>
+        </div>
+        <div class="filter-group">
+          <h5>Year</h5>
+          <label><input type="radio" name="yearRange" value="all" checked> Any year</label>
+          <label><input type="radio" name="yearRange" value="2020-2023"> 2020 – 2023</label>
+          <label><input type="radio" name="yearRange" value="2017-2019"> 2017 – 2019</label>
+          <label><input type="radio" name="yearRange" value="2014-2016"> 2014 – 2016</label>
+        </div>
+        <button class="btn btn-outline btn-block" id="resetFilters">Reset filters</button>
+      </aside>
+
+      <div>
+        <div class="listing-toolbar">
+          <span id="resultCount" style="font-size:14px;color:var(--text-light)"></span>
+          <select id="sortSelect">
+            <option value="relevance">Sort: Relevance</option>
+            <option value="year-desc">Year: Newest first</option>
+            <option value="year-asc">Year: Oldest first</option>
+            <option value="hours-asc">Hours: Lowest first</option>
+          </select>
+        </div>
+        <div class="grid" id="productGrid"></div>
+        <div class="pagination" id="pagination"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/products-data.js"></script>
+<script src="js/main.js"></script>
+<script>
+  const CATS = [...new Set(PRODUCTS.map(p => p.category))].map(c => ({
+    slug: c, label: PRODUCTS.find(p => p.category === c).categoryLabel
+  }));
+
+  let state = {
+    cat: qs("cat") || "all",
+    brand: "all",
+    yearRange: "all",
+    sort: "relevance",
+    page: 1,
+  };
+  const PAGE_SIZE = 12;
+
+  function applyFilters() {
+    let list = PRODUCTS.slice();
+    if (state.cat !== "all") list = list.filter(p => p.category === state.cat);
+    if (state.brand !== "all") list = list.filter(p => p.brand === state.brand);
+    if (state.yearRange !== "all") {
+      const [min, max] = state.yearRange.split("-").map(Number);
+      list = list.filter(p => p.year >= min && p.year <= max);
+    }
+    if (state.sort === "year-desc") list.sort((a, b) => b.year - a.year);
+    if (state.sort === "year-asc") list.sort((a, b) => a.year - b.year);
+    if (state.sort === "hours-asc") list.sort((a, b) => a.hours - b.hours);
+    return list;
+  }
+
+  function renderFilters() {
+    const catEl = document.getElementById("catFilterList");
+    catEl.innerHTML = `<label><input type="radio" name="cat" value="all" ${state.cat==="all"?"checked":""}> All Categories</label>` +
+      CATS.map(c => `<label><input type="radio" name="cat" value="${c.slug}" ${state.cat===c.slug?"checked":""}> ${c.label}</label>`).join("");
+
+    const brands = [...new Set(PRODUCTS.filter(p => state.cat === "all" || p.category === state.cat).map(p => p.brand))].sort();
+    const brandEl = document.getElementById("brandFilterList");
+    brandEl.innerHTML = `<label><input type="radio" name="brand" value="all" ${state.brand==="all"?"checked":""}> All Brands</label>` +
+      brands.map(b => `<label><input type="radio" name="brand" value="${b}" ${state.brand===b?"checked":""}> ${b}</label>`).join("");
+
+    catEl.querySelectorAll("input").forEach(i => i.addEventListener("change", e => {
+      state.cat = e.target.value; state.brand = "all"; state.page = 1; render();
+    }));
+    brandEl.querySelectorAll("input").forEach(i => i.addEventListener("change", e => {
+      state.brand = e.target.value; state.page = 1; render();
+    }));
+  }
+
+  function renderHeaderText() {
+    const cat = CATS.find(c => c.slug === state.cat);
+    const label = cat ? cat.label : "All used farm machinery categories";
+    document.getElementById("pageTitle").textContent = label + " | EG Groups";
+    document.getElementById("heroTitle").textContent = cat ? "Used " + cat.label : "All used farm machinery categories";
+    document.getElementById("crumbLabel").textContent = label;
+  }
+
+  function render() {
+    renderHeaderText();
+    const filtered = applyFilters();
+    document.getElementById("resultCount").textContent = `${filtered.length} machines found`;
+    const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+    if (state.page > totalPages) state.page = totalPages;
+    const pageItems = filtered.slice((state.page - 1) * PAGE_SIZE, state.page * PAGE_SIZE);
+    renderGrid("productGrid", pageItems);
+
+    const pagEl = document.getElementById("pagination");
+    pagEl.innerHTML = "";
+    for (let i = 1; i <= totalPages; i++) {
+      const btn = document.createElement("button");
+      btn.textContent = i;
+      if (i === state.page) btn.className = "active";
+      btn.addEventListener("click", () => { state.page = i; render(); window.scrollTo({top:0,behavior:"smooth"}); });
+      pagEl.appendChild(btn);
+    }
+  }
+
+  document.getElementById("sortSelect").addEventListener("change", e => { state.sort = e.target.value; render(); });
+  document.querySelectorAll('input[name="yearRange"]').forEach(i => i.addEventListener("change", e => { state.yearRange = e.target.value; state.page = 1; render(); }));
+  document.getElementById("resetFilters").addEventListener("click", () => {
+    state = { cat: "all", brand: "all", yearRange: "all", sort: "relevance", page: 1 };
+    document.querySelector('input[name="yearRange"][value="all"]').checked = true;
+    renderFilters(); render();
+  });
+
+  document.addEventListener("DOMContentLoaded", () => { renderFilters(); render(); });
+</script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">Equipment | EG Groups</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚜</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<div class="page-hero" style="padding:26px 0">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / <a href="category.html" id="crumbCat">Category</a> / <span id="crumbName">Machine</span></div>
+  </div>
+</div>
+
+<section class="section-light" style="padding-top:32px" id="productSection"></section>
+
+<section class="section-tint">
+  <div class="container">
+    <div class="section-head"><div><span class="section-eyebrow">You may also like</span><h2>Similar machines</h2></div></div>
+    <div class="card-row" id="relatedRow"></div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/products-data.js"></script>
+<script src="js/main.js"></script>
+<script>
+  const id = Number(qs("id"));
+  const intent = qs("intent");
+  const product = PRODUCTS.find(p => p.id === id) || PRODUCTS[0];
+
+  document.title = product.name + " | EG Groups";
+  document.getElementById("pageTitle").textContent = product.name + " | EG Groups";
+
+  function specsHTML() {
+    return `
+      <div class="spec"><span>Year</span><b>${product.year}</b></div>
+      <div class="spec"><span>Engine power</span><b>${product.hp} HP</b></div>
+      <div class="spec"><span>Operating hours</span><b>${product.hours.toLocaleString()} h</b></div>
+      <div class="spec"><span>Location</span><b>${product.country}</b></div>
+      <div class="spec"><span>Brand</span><b>${product.brand}</b></div>
+      <div class="spec"><span>Category</span><b>${product.categoryLabel}</b></div>
+    `;
+  }
+
+  function renderProduct() {
+    document.getElementById("crumbCat").textContent = product.categoryLabel;
+    document.getElementById("crumbCat").href = "/category?cat=" + product.category;
+    document.getElementById("crumbName").textContent = product.name;
+
+    document.getElementById("productSection").innerHTML = `
+      <div class="container">
+        ${intent === "purchase" ? `<div class="purchase-banner">🛒 Equipment inquiry. Our team will confirm availability, specifications, and delivery options within 24h.</div>` : ""}
+        <div class="detail-grid">
+          <div class="detail-gallery">
+            <img id="mainImg" src="${product.image}" alt="${product.name}">
+            <div class="detail-thumbs">
+              <img src="${product.image}" class="active" onclick="document.getElementById('mainImg').src=this.src;document.querySelectorAll('.detail-thumbs img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+              <img src="https://ik.imagekit.io/efarm/website/Fendt_824_Vario_from_France_to_Spain_d65a206a68.jpg" onclick="document.getElementById('mainImg').src=this.src;document.querySelectorAll('.detail-thumbs img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+              <img src="https://ik.imagekit.io/efarm/website/Kiriakos_Bakirtzis_GER_to_GR_Deutz_Fahr_M620_b2a1d0c5ef.jpg" onclick="document.getElementById('mainImg').src=this.src;document.querySelectorAll('.detail-thumbs img').forEach(i=>i.classList.remove('active'));this.classList.add('active')">
+            </div>
+            <div class="detail-desc">
+              <h3>Description</h3>
+              <p>This ${product.name} (${product.year}) has been fully inspected by EG Groups' technical team. With ${product.hours.toLocaleString()} operating hours and ${product.hp} HP, it is ready for immediate shipment worldwide.</p>
+              <p>All machinery is inspected, documented, and available with full specifications. Questions? Contact our sales team — we respond within 24 hours.</p>
+              <div class="trust-icons-mini">
+                <span>✓ Certified inspection</span>
+                <span>✓ Warranty available</span>
+                <span>✓ Europe-wide transport</span>
+                <span>✓ Secure payment</span>
+              </div>
+            </div>
+          </div>
+          <div class="detail-info">
+            ${product.badge ? `<span class="tag-pill">${product.badge}</span>` : ""}
+            <h1>${product.name}</h1>
+            <div class="country">📍 ${product.country}</div>
+            <div class="detail-specs">${specsHTML()}</div>
+            <div class="detail-actions">
+              <a class="btn btn-primary" href="contact.html?intent=purchase&product=${encodeURIComponent(product.name)}">Purchase this machine</a>
+              <a class="btn btn-outline" href="contact.html?intent=message&product=${encodeURIComponent(product.name)}">Request Equipment Details</a>
+            </div>
+            <div class="seller-box">
+              <div class="avatar">EG</div>
+              <div>
+                <b>Listed by EG Groups</b>
+                <div style="font-size:13px;color:var(--text-light)">Istanbul, Türkiye · Global shipping available</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  function renderRelated() {
+    const related = PRODUCTS.filter(p => p.category === product.category && p.id !== product.id).slice(0, 10);
+    renderCardRow("relatedRow", related);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => { renderProduct(); renderRelated(); });
+</script>
+</body>
+</html>

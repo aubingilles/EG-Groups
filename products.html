@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wholesale Products | EG Groups</title>
+<meta name="description" content="Browse 48+ product categories: food, beverages, raw materials, industrial supplies. B2B wholesale pricing from EG Groups.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📦</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / <span>Products</span></div>
+    <h1>Wholesale Product Catalog</h1>
+    <p style="color:#e8d9b8;margin-top:8px;max-width:620px">Browse 48+ categories across food, agriculture, raw materials & industrial supplies. B2B wholesale pricing.</p>
+  </div>
+</div>
+
+<section class="section-light">
+  <div class="container" style="margin-bottom:32px">
+    <div style="background:#fef9e6;border:2px solid #e9c200;border-radius:var(--radius);padding:16px 20px;display:flex;align-items:center;gap:14px">
+      <span style="font-size:24px">🚜</span>
+      <div>
+        <b>Also browsing tractors?</b> Visit our dedicated <a href="category.html" style="color:var(--green-dark-2);text-decoration:underline;font-weight:600">Agricultural Machinery</a> catalog for tractors, combines, and farm equipment.
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="listing-layout">
+      <aside class="filters">
+        <h4>Product Groups</h4>
+        <div class="filter-group">
+          <label style="padding:8px 0"><input type="radio" name="group" value="all" checked> All Products</label>
+          <label style="padding:8px 0"><input type="radio" name="group" value="Food & Beverages"> Food & Beverages</label>
+          <label style="padding:8px 0"><input type="radio" name="group" value="Agricultural Products & Raw Materials"> Raw Materials</label>
+          <label style="padding:8px 0"><input type="radio" name="group" value="Industrial & Medical Supplies"> Industrial Supplies</label>
+          <label style="padding:8px 0"><input type="radio" name="group" value="Specialty & Other"> Specialty & Other</label>
+        </div>
+        <button class="btn btn-outline btn-block" id="resetFilters" style="margin-top:14px">Reset filters</button>
+      </aside>
+
+      <div>
+        <div class="listing-toolbar">
+          <span id="resultCount" style="font-size:14px;color:var(--text-light)"></span>
+        </div>
+        <div class="grid" id="productGrid"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-tint">
+  <div class="container" style="text-align:center">
+    <h2 style="margin-bottom:14px">Didn't find what you need?</h2>
+    <p style="color:var(--text-light);margin-bottom:24px">Contact our team directly. We source custom quantities and specialty items worldwide.</p>
+    <a href="contact.html" class="btn btn-primary">Request Custom Quote →</a>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/wholesale-data.js"></script>
+<script src="js/main.js"></script>
+<script>
+  let state = {
+    group: "all",
+  };
+
+  function renderProducts() {
+    let list = WHOLESALE.slice();
+    if (state.group !== "all") {
+      list = list.filter(p => p.group === state.group);
+    }
+    document.getElementById("resultCount").textContent = `${list.length} products`;
+    const el = document.getElementById("productGrid");
+    if (!list.length) {
+      el.innerHTML = `<div class="empty-state">No products in this group. Try another filter or contact us for custom sourcing.</div>`;
+      return;
+    }
+    el.innerHTML = list.map(p => `
+      <div class="product-card" style="cursor:default">
+        <a href="contact.html?intent=quote&product=${encodeURIComponent(p.name)}" class="img-wrap">
+          <img src="${p.image}" alt="${p.name}" loading="lazy" style="object-fit:cover">
+        </a>
+        <div class="body">
+          <div style="font-weight:600;font-size:15px;margin-bottom:8px">${p.name}</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px">
+            <span style="background:#faf5e6;color:var(--green-dark-2);font-size:12px;padding:4px 10px;border-radius:6px;font-weight:500">${p.category}</span>
+            <span style="background:#fef9e6;color:var(--text-light);font-size:12px;padding:4px 10px;border-radius:6px">${p.group}</span>
+          </div>
+          <a class="btn btn-primary btn-sm" href="contact.html?intent=quote&product=${encodeURIComponent(p.name)}" style="width:100%">Request Quote</a>
+        </div>
+      </div>
+    `).join("");
+  }
+
+  document.querySelectorAll('input[name="group"]').forEach(el => {
+    el.addEventListener("change", e => {
+      state.group = e.target.value;
+      renderProducts();
+    });
+  });
+
+  document.getElementById("resetFilters").addEventListener("click", () => {
+    state.group = "all";
+    document.querySelector('input[name="group"][value="all"]').checked = true;
+    renderProducts();
+  });
+
+  document.addEventListener("DOMContentLoaded", renderProducts);
+</script>
+</body>
+</html>
