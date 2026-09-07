@@ -6,7 +6,7 @@ const COMPANY = {
   address: "Talatpaşa Mah. 1022. Sk. Acunkent D Blok No: 2 F İç Kapı No: 14, Esenyurt / İstanbul, Türkiye",
   phone: "+90 534 309 1752",
   email: "info@eggrouplimited.com",
-  emailAlt: "aggroupslimited@gmail.com",
+  emailAlt: "eggroupslimited@gmail.com",
   ceoName: "Oben Elton George Tanyi",
   ceoTitle: "Chief Executive Officer",
 };
@@ -92,7 +92,7 @@ function renderFooter() {
           <h5>Contact</h5>
           <ul class="footer-contact">
             <li><span>📧</span><a href="mailto:info@eggrouplimited.com">info@eggrouplimited.com</a></li>
-            <li><span>📧</span><a href="mailto:aggroupslimited@gmail.com">aggroupslimited@gmail.com</a></li>
+            <li><span>📧</span><a href="mailto:eggroupslimited@gmail.com">eggroupslimited@gmail.com</a></li>
             <li><span>📞</span><a href="tel:+905343091752">+90 534 309 1752</a></li>
           </ul>
         </div>
